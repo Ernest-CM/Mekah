@@ -1,0 +1,258 @@
+{
+  "summaries": {
+    "linucb": {
+      "policy": "linucb",
+      "phase_a_warmup": {
+        "n": 60,
+        "mean_reward": 0.20411167074147915,
+        "reward_ci_95": [
+          0.14334747668770467,
+          0.26487586479525366
+        ],
+        "median_completion_ms": 11037.907782257298,
+        "mean_trust": 0.49409749038102824,
+        "completion_rate": 0.7333333333333333,
+        "compliance_rate": 1.0
+      },
+      "phase_b_learning": {
+        "n": 240,
+        "mean_reward": 0.34802157679690604,
+        "reward_ci_95": [
+          0.33376455167490815,
+          0.36227860191890393
+        ],
+        "median_completion_ms": 10221.146283888767,
+        "mean_trust": 0.650878160369732,
+        "completion_rate": 0.9625,
+        "compliance_rate": 1.0
+      },
+      "phase_c_frozen_test": {
+        "n": 120,
+        "mean_reward": 0.3553320366757498,
+        "reward_ci_95": [
+          0.3342221463895239,
+          0.3764419269619757
+        ],
+        "median_completion_ms": 9557.440797611132,
+        "mean_trust": 0.6514021769900864,
+        "completion_rate": 0.9583333333333334,
+        "compliance_rate": 1.0
+      }
+    },
+    "static": {
+      "policy": "static",
+      "phase_a_warmup": {
+        "n": 60,
+        "mean_reward": 0.07515438771663903,
+        "reward_ci_95": [
+          -0.006377410258871424,
+          0.15668618569214948
+        ],
+        "median_completion_ms": 15000.0,
+        "mean_trust": 0.47918827473084236,
+        "completion_rate": 0.48333333333333334,
+        "compliance_rate": 1.0
+      },
+      "phase_b_learning": {
+        "n": 240,
+        "mean_reward": 0.09592672541518034,
+        "reward_ci_95": [
+          0.05605873679325299,
+          0.1357947140371077
+        ],
+        "median_completion_ms": 14822.780312813193,
+        "mean_trust": 0.47305765800710164,
+        "completion_rate": 0.5125,
+        "compliance_rate": 1.0
+      },
+      "phase_c_frozen_test": {
+        "n": 120,
+        "mean_reward": 0.1911529712591307,
+        "reward_ci_95": [
+          0.13611757990139287,
+          0.24618836261686852
+        ],
+        "median_completion_ms": 12790.220243533062,
+        "mean_trust": 0.5578917843240307,
+        "completion_rate": 0.6666666666666666,
+        "compliance_rate": 1.0
+      }
+    },
+    "rule_based": {
+      "policy": "rule_based",
+      "phase_a_warmup": {
+        "n": 60,
+        "mean_reward": 0.37990047572269164,
+        "reward_ci_95": [
+          0.3505873425395907,
+          0.4092136089057926
+        ],
+        "median_completion_ms": 10160.296824396293,
+        "mean_trust": 0.7572953410487326,
+        "completion_rate": 0.9666666666666667,
+        "compliance_rate": 1.0
+      },
+      "phase_b_learning": {
+        "n": 240,
+        "mean_reward": 0.3851150411748823,
+        "reward_ci_95": [
+          0.3707394704640739,
+          0.39949061188569074
+        ],
+        "median_completion_ms": 9853.71660213529,
+        "mean_trust": 0.7506798129406479,
+        "completion_rate": 0.9708333333333333,
+        "compliance_rate": 1.0
+      },
+      "phase_c_frozen_test": {
+        "n": 120,
+        "mean_reward": 0.4024675647187182,
+        "reward_ci_95": [
+          0.38329986574373126,
+          0.42163526369370513
+        ],
+        "median_completion_ms": 9752.934962149662,
+        "mean_trust": 0.7783923775291598,
+        "completion_rate": 0.975,
+        "compliance_rate": 1.0
+      }
+    },
+    "random": {
+      "policy": "random",
+      "phase_a_warmup": {
+        "n": 60,
+        "mean_reward": 0.2250792382838342,
+        "reward_ci_95": [
+          0.16009127498780445,
+          0.29006720157986393
+        ],
+        "median_completion_ms": 11523.143046430334,
+        "mean_trust": 0.531987920491789,
+        "completion_rate": 0.7666666666666667,
+        "compliance_rate": 1.0
+      },
+      "phase_b_learning": {
+        "n": 240,
+        "mean_reward": 0.21947215739789946,
+        "reward_ci_95": [
+          0.18810100470496963,
+          0.2508433100908293
+        ],
+        "median_completion_ms": 10947.658663417595,
+        "mean_trust": 0.513356477649823,
+        "completion_rate": 0.7625,
+        "compliance_rate": 1.0
+      },
+      "phase_c_frozen_test": {
+        "n": 120,
+        "mean_reward": 0.28869558097739817,
+        "reward_ci_95": [
+          0.24964719098479407,
+          0.3277439709700023
+        ],
+        "median_completion_ms": 9639.445343929665,
+        "mean_trust": 0.5777423217746541,
+        "completion_rate": 0.8416666666666667,
+        "compliance_rate": 1.0
+      }
+    }
+  },
+  "linucb_vs_static": {
+    "compliance_rate": {
+      "name": "z_proportions",
+      "statistic": 0.0,
+      "p_value": 1.0,
+      "effect_size": 0.0,
+      "interpretation": "no variance"
+    },
+    "completion_time_ms": {
+      "name": "mann_whitney_completion_time_ms",
+      "statistic": 5419.0,
+      "p_value": 0.0008942655632603919,
+      "effect_size": 0.24736111111111114,
+      "interpretation": "median_A=9557.44, median_B=12790.22, rank_biserial=+0.247, significant at alpha=0.05"
+    },
+    "trust_score": {
+      "name": "mann_whitney_trust_score",
+      "statistic": 8083.0,
+      "p_value": 0.10079171188246484,
+      "effect_size": -0.12263888888888896,
+      "interpretation": "median_A=0.70, median_B=0.40, rank_biserial=-0.123, not significant at alpha=0.05"
+    },
+    "reward": {
+      "name": "mann_whitney_reward",
+      "statistic": 8258.0,
+      "p_value": 0.049247430219185345,
+      "effect_size": -0.14694444444444454,
+      "interpretation": "median_A=0.38, median_B=0.29, rank_biserial=-0.147, significant at alpha=0.05"
+    }
+  },
+  "linucb_vs_rule_based": {
+    "compliance_rate": {
+      "name": "z_proportions",
+      "statistic": 0.0,
+      "p_value": 1.0,
+      "effect_size": 0.0,
+      "interpretation": "no variance"
+    },
+    "completion_time_ms": {
+      "name": "mann_whitney_completion_time_ms",
+      "statistic": 7821.0,
+      "p_value": 0.24855964038078582,
+      "effect_size": -0.08624999999999994,
+      "interpretation": "median_A=9557.44, median_B=9752.93, rank_biserial=-0.086, not significant at alpha=0.05"
+    },
+    "trust_score": {
+      "name": "mann_whitney_trust_score",
+      "statistic": 4355.5,
+      "p_value": 1.233326703744168e-07,
+      "effect_size": 0.3950694444444445,
+      "interpretation": "median_A=0.70, median_B=0.79, rank_biserial=+0.395, significant at alpha=0.05"
+    },
+    "reward": {
+      "name": "mann_whitney_reward",
+      "statistic": 4985.0,
+      "p_value": 3.823169616428279e-05,
+      "effect_size": 0.3076388888888889,
+      "interpretation": "median_A=0.38, median_B=0.41, rank_biserial=+0.308, significant at alpha=0.05"
+    }
+  },
+  "linucb_vs_random": {
+    "compliance_rate": {
+      "name": "z_proportions",
+      "statistic": 0.0,
+      "p_value": 1.0,
+      "effect_size": 0.0,
+      "interpretation": "no variance"
+    },
+    "completion_time_ms": {
+      "name": "mann_whitney_completion_time_ms",
+      "statistic": 6292.5,
+      "p_value": 0.09152082986874041,
+      "effect_size": 0.12604166666666672,
+      "interpretation": "median_A=9557.44, median_B=9639.45, rank_biserial=+0.126, not significant at alpha=0.05"
+    },
+    "trust_score": {
+      "name": "mann_whitney_trust_score",
+      "statistic": 8468.5,
+      "p_value": 0.018379883165750056,
+      "effect_size": -0.17618055555555556,
+      "interpretation": "median_A=0.70, median_B=0.62, rank_biserial=-0.176, significant at alpha=0.05"
+    },
+    "reward": {
+      "name": "mann_whitney_reward",
+      "statistic": 7976.0,
+      "p_value": 0.14928554838628263,
+      "effect_size": -0.10777777777777775,
+      "interpretation": "median_A=0.38, median_B=0.37, rank_biserial=-0.108, not significant at alpha=0.05"
+    }
+  },
+  "targets": {
+    "reward_improvement_vs_static": 0.8588883779057495,
+    "reward_improvement_target": 0.15,
+    "reward_improvement_met": true,
+    "compliance_rate": 1.0,
+    "compliance_target": 0.98,
+    "compliance_met": true
+  }
+}

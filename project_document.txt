@@ -1,0 +1,1744 @@
+Chapter One
+Adaptive Web Interfaces Using Constrained Reinforcement
+Learning and Human-in-the-loop
+
+1.0 INTRODUCTION
+The introduction of the World Wide Web has transformed contemporary society as
+the main source of information exchange, trade, and communication.
+Nevertheless, the existing design paradigm remains largely unchanged even though
+web technologies have evolved at a high pace. A majority of web interfaces in the
+current market are constructed as being one-size-fits-all, that is to accommodate the
+large base of average users. While this strategy may be effective for development, it
+inevitably affects the user experience (UX) of a certain segment of the population,
+especially individuals with unique needs, different interests, or physical impairments.
+This fixed model is increasingly regarded as obsolete in the context of modern
+information technology (IT) solution where personalization and inclusiveness become
+central. Artificial Intelligence (AI) and Reinforcement Learning (RL) provide a strong
+answer to this dilemma. The Reinforcement Learning agents are capable of learning
+the best policies to be used in changing User Interface (UI) contents (e.g., layout, font
+size, and navigation structure) depending upon the real-time user interaction. Having
+a user interface as an environment and user satisfaction as a reward signal, an AI
+agent can be dynamically configured in order to adapt a website to the specific
+context of the visitor. Nonetheless, the introduction of AI to web design presents a lot
+of risks. An unconstrained Reinforcement Learning Agent that maximizes its
+specified reward function (e.g., time on site or click-through rate). A naive agent can
+unintentionally create interface settings that do not meet the requirements of
+accessibility, which include the Web Content Accessibility Guidelines (WCAG). To
+give a scenario, an agent may decrease the contrast color so that a design appears to
+look sleek, which may lead the design to look unreadable to people with poor vision.
+Moreover, the self-generated modifications will confuse the users, making them lose
+control and faith in the system. This current project suggests a new structure:
+“Adaptive Web Interfaces through Constrained Reinforcement Learning and Humanin-the-loop”. This method has the advantage of utilizing the optimization ability of
+
+Reinforcement Learning, but within safety limits set by WCAG guidelines. It will
+further overlay a Human-in-the-Loop (HITL) to check the adaptations to make sure
+the system is trusted and user-centered. This study is aimed at leading to the provision
+of a solid IT solutions in order to increase the need for an inclusive and intelligent
+web by resolving the two-fold problem of accessibility and user trust.
+
+1.1 BACKGROUND OF THE STUDY
+The journey of the web interface design has been one of increasing abstraction and
+adaptability. In the creation of the web in the 1990s, the pages written in Hypertext
+Markup Language were primarily static pages. This meant that the styling of the page
+was directly connected with the content, and the functionality of the page was strictly
+limited to the capabilities of the web browsers of that time. The evolution of
+Cascading Style Sheets (CSS) in the late 1990s brought the first big change in web
+development. With the rise of mobile devices in the late 2000s came a crisis in the
+industry, desktop oriented websites were very unstable for mobile devices. This
+would lead to the popularity of Responsive Web Design, a term coined in 2010 by
+Ethan Marcotte. Responsive Web Design employed the concept of “media queries,”
+which were used to respond to viewing device size and changing of layouts.
+Responsive Web Design was a huge improvement, but still a reactive technology that
+depended on the device attributes rather than those of the user. A 60-year-old user
+with low vision and a 20-year-old user with perfect vision would receive the same
+interface if they were using the same device, despite having different needs. In recent
+years, the focus has been shifted towards “Adaptive” interfaces that can respond to
+user data. Early attempts involved rule-based systems, which are designed so that if a
+user is on a slow connection, load low-resolution images. However, these rules were
+manually hard coded by developers and could not scale to the complexity of human
+behaviour. The advent of Modern Machine Learning brought about the next evolution:
+an Artificial Intelligence driven personalization. Recommender Systems (like those
+used by Netflix or Amazon) began adapting content dynamically. Of course, a similar
+line of reasoning began to be applied to the interaction itself, too. A promising
+candidate for meeting this requirement was Reinforcement Learning, a subfield of
+Machine Learning in which an agent learns through trial-and-error learning.
+Experiments conducted using Contextual Bandits (a simplified variant of
+Reinforcement Learning) show agents choosing optimal arrangements for maximizing
+
+engaging users. Despite all these breakthroughs, disadvantages still exist. Most
+current research on Artificial Intelligence and User Interface has only emphasized on
+so called “performance” factors such as conversion rates. There has been a lack of
+focus on constraints related to accessibility. Previous projects had mostly thought of
+accessibility as an addition to User Interface design. This led to optimizing systems
+that were more active but were inaccessible to those with physical or cognitive
+disabling conditions. Also, the black box properties of deep models have led to a lack
+of trust. Users don’t trust interfaces that behave erratically. This project will resolve
+all these issues by using formal constraints on safety and Human-in-the-loop systems
+in the adaptive loop.
+
+1.2 STATEMENT OF PROBLEM
+Despite continuous advancements in web technologies, many contemporary web
+interfaces still adopt uniform design approaches that fail to accommodate the diverse
+abilities, preferences, and accessibility needs of users. Recent studies indicate that
+while adaptive web interfaces have gained attention as a means of improving user
+experience, most existing solutions primarily focus on optimizing performance-driven
+metrics such as engagement, efficiency, and interaction frequency, with limited
+emphasis on accessibility and inclusiveness (Zhang & Wang, 2023). Many emerging
+adaptive interface systems employ reinforcement learning and similar approaches to
+sequence decisions for adjusting interface components based on user behavior.
+However, the unrestricted model of a learning approach is focused on the
+maximization of the reward value, which might also lead to the degradation of the
+user interface for people with disabilities, where the requirement for accessible
+interface design is not explicitly stated during the adaptation process (Lattimore &
+Szepesvári, 2020, Trewin, 2018). Recent studies on interface accessibility clearly
+pointed out the failure of machine learning models in adhering to interface standards,
+such as Web Content Accessibility Guidelines, which might create interface
+difficulties for people with disabilities (Kristić et al., 2025, W3C, 2018). Besides
+issues of accessibility, it must be noted that the autonomous and opaque nature of
+adaptive artificial intelligence systems provides issues concerning issues of
+transparency and trust as well as issues of fairness to the end users involved with such
+systems. Users may become uncomfortable with changes in an adaptive interface as it
+may be considered unfair due to the lack of human oversight in decision-making
+
+processes involved with adaptive artificial intelligence systems, thus affecting their
+trust with adaptive systems in general (Lee, 2021). Recent research into human-AI
+interactions highlights the need to adopt human-in-the-loop components for improved
+reliability and trust with adaptive systems for greater human-AI collaboration for
+efficiency and reliability in human-AI interactions that have gained even greater
+importance with the advent of Web 4.0 (Amershi et al., 2019; Gaspar-Figueiredo et al.,
+2025).
+
+1.3 AIM AND OBJECTIVES
+This study aims to develop an adaptive web interface using constrained reinforcement
+learning and human-in-the-loop. The Objectives of the study are as follows:
+
+
+Research and Fact-Finding: To solicit reports and assess extensive literature on
+the area of Reinforcement Learning in HCI, web accessibility standards (WCAG),
+and Human-in-the-Loop approaches.
+
+
+
+System Design: To develop a suitable conceptual model or framework (the A2RL Framework) that can successfully superimpose Constrained Reinforcement
+Learning with a WCAG Safety Shield and a HITL feedback mechanism.
+
+
+
+Implementation: To apply the designed framework on a simulation environment
+(using a representative web application) to prove the capability of the agent to
+learn safe adaptation policies.
+
+ Evaluation: To assess the developed system in terms of selected indicators, in
+particular, the rates of WCAG compliance, the time spent on each task by the
+user persona, and the rates of adaptation acceptance as an indicator of user trust.
+
+1.4 SIGNIFICANCE OF STUDY
+The subject matter is quite pertinent to contemporary IT problem-solving due to a
+number of reasons.
+
+
+Digital Accessibility
+
+This is no longer a choice; it is a legal and ethical obligation in a number of
+jurisdictions. With the web making the main interface to the government service,
+education, and banking, the failure to create interfaces that are not conclusive to
+people with disabilities is one of the key failures of the IT infrastructure. This paper
+offers a technical remedy of protecting inclusivity automatically.
+
+
+The Future of Web Development
+
+This is Personalized User Experience. Users are now demanding contextual interfaces.
+This work contributes to the HCI research since it is no longer a field of static
+responsive design, but is now a field of intelligent design.
+
+
+Trustworthy AI
+
+This project resolves a critical problem in the current IT ethics of ensuring that
+humans remain in control of artificial intelligence systems by incorporating a Humanin-the-Loop.
+
+1.5 SCOPE OF STUDY
+
+
+Systematic Scope: This paper deals with Web User Interfaces (DOM-based
+environments) and it will not be generalized to native mobile apps and computer
+software. The specified focus of AI is Constrained Reinforcement Learning 4 in
+particular, as opposed to other types of machine learning, such as supervised
+learning.
+
+
+
+Functional Scope: The system will be constrained to certain UI adjustments that
+include font size changes, contrast adjustments, simplifying the layout, and
+element sizing. It will neither create new content nor paraphrase.
+
+ Geographical Scope: The project is executed at a local level, but the standards
+that are applied in it (WCAG 2.1) are International Standards (ISO/IEC 40500)
+on a global level. Thus, the solution applies to the international context of the
+World Wide Web.
+
+1.6 JUSTIFICATION OF STUDY
+The solution will add to the literature on Computer Science and Human-Computer
+Interaction (HCI). Available
+
+literature usually considers the concepts of
+
+“Accessibility” and “Optimization” as individual objectives. This paper supports its
+method by showing that they can be coupled together using Constrained
+Reinforcement Learning. Through its example of how an AI agent can be compelled
+to be made available through a safety layer, this paper presents a roadmap that can
+guide the developers of the future to create ethical AI agents. It provides a new
+architectural style, the so-called WCAG Safety Shield, to which other researchers can
+apply to ensure that AI does not acquire harmful or discriminatory patterns of
+behavior.
+
+1.7 LIMITATION OF STUDY
+In all academic writings, there are restrictions. For this project:
+
+
+Computational Latency: The “Safety Shield” requires that checking of
+accessibility must be carried out in real-time before an action is carried out. This
+can also create latency, which can be a problem for the system performance, a
+constraint that optimization might not completely overcome in this research. The
+agent will be trained and tested mainly in a simulated environment using artificial
+user personas. As this demonstrates the idea, it might not be that representative of
+the unpredictable and chaotic nature of human behavior in the real world.
+
+
+
+User Resiliency of Automated Checks: The system uses automated devices to
+check the compliance of WCAG (such as axe-core). It is a well-known weakness
+that automated tools can only identify the accessibility problems that are around
+30-50 percent; some problems are beyond the scope of this automated system and
+need to be handled by humans.
+
+1.8 DEFINITION OF TERMS
+
+
+Adaptive Web Interface (AWI): A user interface that automatically adapts its
+design, content, or structure depending on the context and behavior of the user.
+
+
+
+Reinforcement Learning (RL): This form of machine learning is where an agent
+makes decisions by taking actions in a setting and being rewarded or punished.
+
+
+
+Constrained Reinforcement Learning (CRL): This is a type of RL where the
+agent strives to maximize rewards, but must meet a cost or safety constraints.
+
+
+
+Human-in-the-Loop (HITL): A paradigm in which a human is needed to ensure,
+correct, or direct the actions of an AI system.
+
+
+
+WCAG (Web Content Accessibility Guidelines): A set of guidelines that have
+been issued by the W3C to ensure that web content is more accessible to
+individuals with disabilities.
+
+
+
+DOM (Document Object Model): The computer interface of web documents,
+the structure of the page in the form of a tree of objects, which are processed by
+the AI agent.
+
+
+
+Safety Shield: This is a software component of this structure that imitates an
+action and compares it to safety rules (WCAG) before it is allowed to occur.
+
+CHAPTER TWO
+LITERATURE REVIEW
+2.1 Concept of Web User Interfaces
+A web user interface, abbreviated as UI, refers to the interactive part of a web-based
+application that helps users interact with an application with the aim of achieving
+particular goals. It is the visible part of a web-based system, which is used by users to
+view information, input information, navigate between pages/modules, as well as
+getting feedback from the system. The web UI is made up of web UI elements, which
+include navigation menus, buttons, hyperlinks, web forms, icons, search boxes, tables,
+as well as system messages. The effectiveness of a web application is determined by
+the quality of the web user interface, as users are able to understand the functions of a
+system using the web UI, which helps them execute their duties quickly.
+Web user interfaces are typically implemented using web technologies such as HTML,
+CSS, and JavaScript. HTML is used for structuring content on the web, while CSS is
+used for its layout. JavaScript is used in implementing dynamic features like input
+validation and providing feedback to the users. With the growth of the evolution of
+web applications, the web interface is now being used to interact with the server
+through application programming to access the information needed to be showcased
+to the users. Hence, the web interface is not purely just the display object anymore but
+is considered to be the dynamic platform where changes can take place due to the
+dynamic changes of the system as well as the changes caused to the states of the web
+interface by the users. Research has confirmed the dynamic platforms to be the
+adaptable platforms, which can also optimize the web interface layouts. A typical web
+UI consists of a number of different components, some of which play a critical role in
+enabling user interaction. Among them, the navigation components include menus,
+
+tabs, breadcrumbs, and sidebars, and the form components include forms and
+inputs.Input components, such as text boxes, drop downs, radio buttons, and file
+uploads, enable users to supply information or change system settings. Action
+components, such as buttons and links, enable users to complete actions, such as
+submitting a form, acknowledging the execution of actions, or transitioning between
+the stages of a business workflow. Feedback components, such as alerts, notifications,
+load indicators, or progress bars, let users determine the status of the system or the
+successful execution of actions. Users become able to work faster with a lower error
+rate.
+Usability stands out in the importance of UI designs for the Web because it
+determines the ease of learning and use of the interface for the purpose of task
+completion. Efficiency of use, consistency, effective navigation, and error prevention
+characterize a usable Web interface. Nevertheless, recent theories related to adaptive
+interfaces illustrate the insufficiency of performance measures for UI evaluation.Even
+if the speed and accuracy increase, user satisfaction may decrease if an adaptive
+system makes predictions that lead to an unpredictable or confusing interface. For
+example, studies on user interface adaptation are focused on research that highlights
+how interface satisfaction would need to be observed from the point of view of
+performance as well as comfort.
+Another critical concept of web user interfaces is that of accessibility and inclusive
+design. Accessibility involves ensuring that people with disabilities, whether visual,
+motor, or cognitive, can successfully access and use the content of the web by means
+of assistive technologies. Inclusive design then encompasses accessibility in that it
+aims to include an even wider range of users in different settings. It appears to be
+especially important in regard to modern adaptive web interfaces in that dynamic
+
+changes in the UI could inadvertently pose issues of accessibility, such as when
+navigation order is harmed, readability becomes an issue, or confusion arises. A
+systematic review of machine learning in the area of adaptive accessible user
+interfaces illustrates that many adaptive systems do not set accessibility as an absolute
+criterion, thus forming a research gap in regard to that.
+Conclusion In conclusion, the definition of web UI includes the interactive elements
+for supporting user activities, the techniques for facilitating web interaction, and the
+concepts of usability and accessibility to support effective system usage. With the
+further development of web technology, there is a greater need for web UI to shift to
+intelligent and adaptive interfaces, and, hence, a need to achieve a balance of
+personalization and system stability, and accessibility.
+
+2.2 Evolution of Web User Interfaces
+The development of web user interfaces also mirrors the ever-increasing pace of web
+technology advancement and the need for greater interactivity from web users. During
+the initial development of web technology itself, the design of most web user
+interfaces was static. This means that web pages were designed mostly for the purpose
+of information presentation. On the user side, only the simplest of functional
+capabilities were available to the user. These included simple tasks like reading
+content, following hyperlinks for browsing, and filling out simple forms. This was the
+initial development of web user interfaces.
+As the usage of the internet increased on the web, the interfaces that were used on the
+web also started to change from static interfaces to dynamic and interactive interfaces
+known as web interfaces. Such a change in the interfaces was motivated by the need
+to improve the experience and system response to the activities performed by the
+users through the click of a mouse or input into the form. Because of the invention of
+
+dynamic web interfaces, users were presented with dynamic web interfaces that
+reacted instantaneously to activities performed by the user, such as the time taken to
+click a certain link and input information into the form. Such a change contributed to
+an improvement in usability due to the improved time taken by the system to react to
+the activities performed by the user. Web applications currently also offer the
+capability to update interfaces in real time, a factor that also contributes to the
+interface design factor as it does not only affect the user interface design but also the
+way the system responds to the activities performed by the user.
+The following significant stage in the evolution of web UI came under the impact of
+the rise in the use of smartphones, tablets, and multi-device web browsing.The
+following significant stage in the evolution of web UI came under the impact of the
+rise in the use of smartphones, tablets, and multi-device web browsing. Users started
+to use web systems on various screen sizes, along with various input mechanisms
+such as touch, stylus, and voice. This gave birth to the concept of responsive web
+design, which allows the layout of a web system to automatically change according to
+the device used. Although responsive web design is quite helpful in improving the
+accessibility of the web system with respect to various devices, yet responsive design
+itself failed to cater to the differences in user preferences, abilities, and accessibility
+requirements. Therefore, researchers and designers shifted towards adaptive web
+interfaces.
+Adaptive UIs are a major advancement area for web UIs since they act to adapt the UI
+design depending on user behavior or needs.For instance, an adaptive interface might
+rearrange menu items according to often-used tasks, improve navigation for new users,
+or point users toward favorite items. On the other hand, some of the challenges
+associated with adaptive interfaces might include a lack of predictability and control
+
+by users when changes occur at a very high frequency. Gaspar-Figueiredo et al. (2025)
+indicate that adaptive interfaces can positively impact performance but can also
+impact user comfort and satisfaction levels depending on user perceptions of interface
+changes.
+However, when web applications became more complex, scientists added the concept
+of Artificial Intelligence (AI) or machine learning to improve the quality of adaptation.
+Originally, adaptational systems were depending upon human rules; nonetheless,
+these are restrictive since user behavior is dynamic.Reinforcement learning (RL) was
+a major intelligent approach adopted since it considers interface adaptation as a
+decision-making task. The system is able to observe the patterns of how users interact
+with the system, make interface changes, and learn a policy on how to adapt the
+interfaces based on reward signals. An example of the advancement is showcased in
+Sun et al. (2024), the adaptive user interface generation using reinforcement learning.
+Recent research also indicates the potential for issues with trust and usability as a
+result of completely automated adaptation, unless users are aware of the reasons for
+the modifications made to the user interface. Hence, human-in-the-loop (HITL)
+techniques emerged as a result, which include the consideration of user feedback for
+adaptation processes. Gaspar-Figueiredo et al. (2025) highlight the significance of
+human feedback and how it could increase the acceptability of reinforcement
+learning-based adaptive interfaces for users by ensuring that the adaptation process is
+based on user preferences.
+This represents the contemporary era of web user interfaces, which have evolved from
+completely automated user interfaces to human-centered interfaces for adaptation and
+are also levelling the playing field for web user interfaces toward user-controlled
+interfaces for web services and applications.
+
+To this growing list, the trend in web user interfaces concerning matters of
+accessibility and inclusiveness also needs to be included. The contemporary web UI
+interface is very interactive, as its design changes dynamically. This actually creates
+accessibility challenges, as such changing interfaces are a barrier when a user is using
+an assistive technology or a navigation system that does not change. Hence, the
+question of inclusiveness arises as an important factor in the design of a web UI.In a
+nutshell, the historical account of the web UI design has to be depicted as an evolution
+from a static presentation of information to an intelligent adaptive one, passing
+through such important milestones as the appearance of responsive and interactive
+ones in the way they are presented to the user. As web UI has advanced, there have
+been chances for enhanced personalization; on the contrary, there are also some
+challenges to be met with.
+
+2.3 Web Accessibility and Inclusive Design
+Web accessibility can be defined as the design and development of web systems to
+ensure that people with disabilities can perceive, understand, navigate, and interact
+with web content effectively. Web accessibility is crucial because the web has
+become a very significant platform for learning, communication, trade, and service
+provision. If the web interface is not made accessible, it can prevent people with
+disabilities from using web systems fully. Web accessibility can be viewed as
+inclusive design, which ensures that the web interface is useful for a broad range of
+people, such as people with permanent, temporary, or situational impairments like
+poor lighting or low-end internet connections.
+Accessibility of web interfaces refers to a number of needs, including those for visual,
+hearing, physically, speech, and cognitive impairments. For instance, web users with
+visual impairment may make use of screen readers or need contrast and scalable
+
+text.Users with physical disabilities might use keyboard-only browsing and other
+alternative interfaces. Users with cognitive disabilities might especially benefit from
+simple layouts, predictable movement, and streamlined interaction flow. Such needs
+demonstrate that accessibility not only involves adding assistive functionality, but
+sometimes involves creating interfaces less burdensome and easier for everyone to
+use.
+An international standard used in making a website accessible is known by the
+acronym WCAG (Web Content Accessibility Guidelines). This is a standard that
+focuses on making web content accessible and is built around four principles:
+"Perceivable, Operable, Understandable, Robust" (POUR). Despite WCAGs
+availability and guidelines in making a website accessible, studies indicate that
+current dynamic and interactive web systems are not meeting accessibility standards
+despite these standards being in place and widely used in making websites accessible.
+A lot of web applications have dynamic updates, animations, and interactive elements
+that, if not carefully planned, may raise accessibility issues.For instance, in cases
+where changes occur in the content without any notifications, it might become
+difficult for the screen reader software to recognize changes in the content. Moreover,
+keyboard focus might become an issue whenever dynamic changes take place in the
+arrangement of the content, which might not allow people not using the mouse to
+navigate through the content easily. Such issues could typically arise in modern web
+applications, which largely depend on interfaces developed through JavaScript.
+Recent studies affirm that accessibility solutions are continually improving but that
+work is left when it comes to integration and consistency. Bercaru and Popescu (2024)
+analyzed techniques and tools applied in accessibility in online systems ranging from
+voice interfaces to speech recognition and assistive technologies. Their research
+
+affirmed that despite various tools being developed and readily available, accessibility
+is yet implemented in standalone aspects and not integrated from start to finish within
+interface design. This leaves systems looking accessible in some respects but also
+imperfect in their navigation interface or content organization aspects.
+This supports why accessibility is also an aspect that requires inclusion from start to
+finish in UI design and development.
+Inclusive design also emphasizes that the needs of users are very diverse, especially in
+vulnerable groups like senior citizens. Wickramathilaka et al. present that seniors
+usually have many interaction barriers because of reduced vision, reduced precision in
+motor tasks, or because they cannot comprehend complex layouts. Their findings
+confirm using adaptive and accessible interfaces which can adjust the layout,
+readability, and navigation according to the user's needs. This indicates that inclusive
+design is not about mere compliance but flexibility and personalization for the
+facilitation of diversified users.
+Color and contrast are the other important accessibility issues in terms of web
+interfaces. Many systems use color to represent meaning; for example, red can mean
+an error that has been made, while green means success. However, such cues may be
+difficult or poorly perceived by users with color vision deficiency.Sajek et al. (2025)
+investigated the perception of accessibility of resources on the web for users with
+color vision deficiency and proved their point on how color and contrast affect the
+usability and readability of a resource on the web. According to the result, it is
+essential to make the web system enforce the use of accessible colors and design to
+make sure that resources on the web do not contain information conveyed by colors.
+The relevance of accessibility further escalates in adaptive web interfaces, as the
+adaptation process may introduce additional accessibility issues. For instance, if the
+
+menu is rearranged in the adaptive system for personal use, the keyboard navigation
+may become distorted. A systematic review published on machine learning in
+adaptive accessible interfaces suggested that current adaptive systems based on
+machine learning do not always consider accessibility as a hard constraint while
+adapting in real time, making room for accessible adaptive design.
+In a nutshell, web accessibility and inclusive design play a vital role in modern webbased user interfaces because they ensure systems can be used effectively by diverse
+users, including people with disabilities. Although accessibility standards and
+guidelines give strong guidance, research indicates that many systems face serious
+problems while integrating accessibility into their interfaces, especially as they grow
+increasingly dynamic and adaptive. Consequently, adaptive web interface design
+should take up the challenge of accessibility constraints and inclusive principles to
+make sure personalization does not reduce usability for any group of users.
+
+2.4 Adaptive Web Interfaces and Intelligent Learning
+Approaches
+Adaptive web interfaces are a type of web user interface that can adapt its content,
+layout, structure, or interaction behavior to meet the needs of the user. Unlike static
+web interfaces that are designed for all users in a similar way, adaptive web interfaces
+are designed to make the user interface experience as personalized as possible to
+make interaction as easy, quick, and efficient as possible. User adaptation can include
+adjusting menus to the user’s needs or requirements, restructuring learning processes
+for new users, or adapting visual aspects such as font size or color for better
+visualization. This has major importance since all users have different skills levels,
+needs, or devices to work or interact with a computer system.
+
+Confusion arises often when adaptive interfaces are considered to be the same thing
+as so-called responsive design. Responsive design primarily changes the layout in
+accordance with the screen size so that it can be used for desktop computers, tablets,
+and mobile phones.Nevertheless, adaptive interfaces take a further step in adapting
+the interface according to user-related factors like user behavior patterns, usage data
+in terms of interaction histories, and accessibility requirements. While adaptive
+interfaces are more user-centric in their approach, they also face several issues related
+to interface instability and loss of predictability and user trust when unexpected
+changes take place.
+One of the most critical issues that must be considered within adaptive web interfaces
+is that of ensuring improvement in usability rather than confusing the user. Several
+studies demonstrate the enhancement of task performance time and optimization of
+the adaptive approach, though the user may feel negative in terms of the adaptive
+environment in the event of frequent changes within the user interface. GasparFigueiredo, et al. in 2025 verify that performance indicators alone must not be used
+for adaptive interfaces, due to the significant role of user preference in the acceptance
+of adaptive systems.
+First, adaptive interfaces in the early days were rule-based, and the designer would set
+up conditions such as “if a user is new, display simpler features” or “if a feature is
+heavily used, move it up.”Though rule-based adaptation can be easily implemented, it
+has limitations in terms of its ability to adapt to complex patterns of user behavior or
+changes in the needs of the user over a period of time. As web applications became
+complex, intelligent learning techniques, namely machine learning, were used to
+adapt systems. There is a systematic review of machine learning for adaptive
+
+accessible interfaces available that recommends the use of learning for adaptation but
+states that accessibility is still not a requirement for adaptive systems.
+Reinforcement learning (RL) has turned out to be a most effective learning method
+for adaptive web interface design as it treats user interface adaptation as a sequential
+decision-making task. Here, the reinforcement learning agent takes into account the
+state of the user interface as well as the user environment. Then it makes a decision
+(like a different layout or menu arrangement) and receives a reward as feedback.Sun
+et al. (2024) have shown that reinforcement learning can be used to adapt the
+generation of the user interface by learning that the layout of the interface can be
+adapted to be optimal. It has important applications in that it is independent of hardcoded rules.
+Nevertheless, reward-based adaptation in reinforcement learning is greatly dependent
+on reward functions. For example, if reward functions are centered only on metrics of
+engagement activities like clicks and time used, adaptation systems may end up
+learning and implementing adaptations that might enhance user engagement but
+compromise user usability and accessibility. Vidmanov (2024) discusses that
+modeling rewards for usability is a key area that can help make sure that
+improvements are done by reinforcement learning without implementing negative
+interface adaptations by design.
+Another key development in the area of adaptive web interfaces is the incorporation
+of human feedback into intelligent learning systems. With human-in-the-loop (HITL)
+adaptation, users are able to shape and inform interface adaptation processes and
+thereby increase the levels of transparency and trustworthiness associated with them.
+According to Gaspar-Figueiredo et al. (2025), the incorporation of human feedback
+into reinforcement learning algorithms helps enhance the acceptability of adaptive
+
+modifications and align the modifications with user expectations.Similarly, the
+significance of human-in-the-loop reinforcement learning, which improves safety,
+trust, and alignment, particularly in automated decision-making impacting human
+experience directly, is emphasized in the study done by Retzlaff et al. (2024).This is
+crucial for an adaptable web interface because, sometimes, users might not want
+systems that adapt unpredictably without control or explanations.
+Context-aware adaptation is another intelligent method that further refines adaptive
+interfaces. Context-aware interfaces are based on adapting decisions influenced by the
+context, which might include device information, location awareness, time of
+interaction, and user goals and interaction history. Adaptation based on context was
+also discussed by Carrera-Rivera et al., (2024) in the context of proposing the
+AdaptUI system, which is a context-aware system that enables model and
+recommendation-based adaptation. The paper clearly demonstrates that the modeling
+of context enables the suppression of random adaptation and the relevance of
+personalized interfaces. The limitations of accessibility are still required for better
+integration for adaptation for every user.
+In conclusion, adaptive Web interfaces are a significant development in web interface
+design as they have made it possible to adapt to user needs.Although reinforcement
+learning has immense potential for adaptation and learning in a continuous manner,
+yet its application needs a well-defined reward function to avert usability or
+accessibility issues through correct handling of constraints. Human-in-the-loop and
+context-driven learning strategies further advance adaptive systems to boost trust,
+transparency, and relevance through intelligent learning methods that form a robust
+foundation for building adaptive web interfaces.
+
+2.5 Related Works
+This section presents an extensive discussion based on sixteen current research
+articles that have appeared in journals and conferences between 2020 and 2025 and
+are highly related to adaptive web interfaces, reinforcement learning-based adaptive
+user interface systems, usability evaluation, accessibility, and inclusive design issues.
+Each of the research articles will be considered separately in this section with an
+emphasis to identify their contribution to the field to understand their importance and
+to understand the gap that leads to the need for an accessibility-conscious adaptive
+web interface model with well-controlled adaptation mechanisms.
+
+A rather encompassing systematic literature study on the application of machine
+learning technologies in adaptive and accessible user interfaces was carried out by
+Kristić et al. (2025). A large scope of adaptive interface technologies developed in
+conjunction with supervised, reinforcement, and even hybrid machine learning
+approaches was surveyed in this study. From the study, the following were established:
+While the application of the aforementioned advanced technologies is rather
+beneficial in terms of improving the overall personalization capabilities of the
+adaptive interface, the inclusion of accessibility attributes can be said to be optional or
+subordinate. For instance, the study found that most adaptive technologies were
+primarily designed with the intention of optimizing the entire performance as well as
+the level of engagement that users can enjoy with the adaptive interface. Moreover,
+the inclusion of the accessibility attributes, such as WCAG, was rather limited or even
+lacking altogether in the adaptive technologies surveyed. This study is rather relevant
+with regard to the present study since the gap relating to the inclusion of the
+aforementioned advanced technologies to adaptive user interfaces is acknowledged.
+
+Authors Sun et al. (2024) have proposed an adaptive user interface generation process
+based on reinforcement learning techniques. According to Sun and his colleagues,
+personalization can be defined as a process of sequential decision-making. In their
+study, Sun and his colleagues have represented the interface adaptation process as an
+interactive system environment that enables an agent to learn and eventually gain an
+optimal interface configuration based on observations and feedback received based on
+a reward signal. According to Sun and his colleagues, their study revealed that
+reinforcement learning techniques can generate interface configurations and optimize
+them without heavily relying on personalization techniques or interface generation
+algorithms. Nevertheless, as reported by Sun and his colleagues, personalization
+heavily depends on an adequate reward signal; otherwise, it might emphasize user
+engagement rather than actual usability. Moreover, personalization constraints
+regarding interface accessibility were not carefully emphasized in this particular study.
+This particular study relates to the present research as it established that reinforcement
+learning techniques are applicable to adaptive interface generation techniques and
+emphasized that personalization performance heavily depends on adequate control
+and constraints regarding interface accessibility.
+
+Gaspar-Figueiredo et al. (2025) sought to assess the usability of adaptive user
+interfaces by examining the differences in the performance and preferences of users
+with regard to non-adaptive and adaptive menus. The researchers carried out
+experiments and assessments using the evaluation measure. The results of the research
+revealed that the use of an adaptive interface can improve the efficiency and accuracy
+of performing tasks. However, the research confirmed that users are likely to specify a
+nonadaptive interface. The researchers argued that the assessment of the efficiency of
+an adaptive interface cannot rely only on the results obtained from the experiments
+
+and assessment. Other factors, including the satisfaction level of the users, the level of
+trust with the interface, and the level of control by the users, are crucial. These factors
+are very critical in a design evaluation. The research supports the current research by
+covering topics that are crucial and crucial in the design of web interfaces.
+
+In a similar research, Gaspar-Figueiredo et al. (2025) developed a new reinforcement
+learning-based approach to building an adaptive interface and proposed a new
+adaptive interface framework that utilizes the element of humans. In the research, the
+authors tackled the concept of building an adaptive web interface that included
+mechanisms that could utilize the element of humans. The results demonstrated that
+the incorporation of the element of humans into the adaptive interface provides a
+platform where the user can either accept or reject the altered interface. The research
+concluded that the full autonomy of building an adaptive system could result in a high
+level of frustration among the users. Such a research is highly applicable and
+significant to the current research as it provides the required evidence that justifies the
+involvement of the element of humans.
+
+Vidmanov (2024) investigated the usability reward modeling technique employed in
+reinforcement learning-based adaptive user interfaces. In the paper, the researcher
+examined the effects of different reward models on the usability of the computer
+interface. In the research, the results showed that several reward models focusing on
+efficiency, reduction of errors, and satisfaction of the user can offer more predictable
+interface adaptations compared to those focusing on the engagement of the user. The
+researcher highlighted the fact that inappropriate reward models can lead to
+inconsistent interface changes. The paper is relevant to the research objectives since
+
+the researcher highlighted the significance of reward models to ensure the usability of
+the web interface.
+
+Similarly, in search of the potential of deep reinforcement learning methods for
+improving the user interface in the context of the user interface system design
+framework provided in this paper, a paper titled "Deep reinforcement learning
+methods for enhancing the user interface in the context of the user interface system
+design framework" was published by Khamaj in 2024. Its relevance to the topic of the
+presented paper emerged from the demonstration of the potential of learning-based
+user interface system design on the one hand; on the other hand, the author of the
+paper warned the user interface system design framework against the potential pitfalls
+of unrestrained learning in the context of user interface system design for a better user
+interface system within user interface systems. Specifically, the potential pitfalls
+mentioned in the paper published by Khamaj in 2024 revolved around the possibility
+of unstable user interface system design in the context of the user interface system
+design framework provided in this paper.
+
+Carrera-Rivera et al (2024) developed a framework that was termed “AdaptUI.” The
+newly introduced framework was greatly motivated by the need to “facilitate adaptive
+user interface development.” The newly introduced framework greatly underscored
+the need to “develop a comprehensive model of user and system context, including
+user context—user preferences, user behavior, user environment, as well as a
+corresponding notion of system context, such as interaction devices' capabilities,
+interaction conditions, etc.” The newly introduced framework was analyzed through
+various case study applications, proving its ability to “show that user satisfaction is
+greatly influenced by the ability to adequately reason about user context changes
+
+during user interaction.” The results revealed that its ability to “support users
+interacting with a user interface that can reason about user context changes is critical
+to the overall success.” The problem attempted to tackle functional personalization,
+with issues regarding accessibility only being implicitly tackled. The problem is very
+relevant to the research because, through its findings, “the importance of user context
+is revealed when analyzing user satisfaction—a critical aspect to be incorporated into
+adaptive user interface development.”
+
+Bercaru and Popescu (2024) in their study created an in-depth survey of accessibility
+approaches and difficulties in web interfaces focusing on the various applications of
+artificial intelligence in accessibility enhancement. Some of the approaches discussed
+in the study were recognition systems, auto-capturing systems, optimizing screen
+reader systems, and intelligent assistive technologies all geared towards enhancing the
+accessibility of web interfaces for individuals living with various impairments.
+Despite the promising features of the discussed approaches in enhancing accessibility
+in web interfaces, the study established the main focus of all the approaches as being
+supplementary features rather than integral features in interface development. Another
+key aspect established in the study was the late inclusion of accessibility in interface
+systems as an auxiliary aspect of interface development. This aspect of diversity in
+interface approaches presents an implication of the negative perspectives of the
+current accessibility approaches in the context of promoting interface accessibility.
+This study strongly enhances the views of the current study in the context of the
+negative perspectives of the current accessibility approaches in the context of
+promoting interface accessibility.
+
+The research paper by Sajek et al. (2025) explores and presents the views and
+perceptions related to web accessibility among users who face color vision deficiency.
+The discussion in the study has emphasized the use of improper use of contrasts and
+color combinations. Similarly, the research has explained how the use of colors can
+negatively affect the readability of online content. In the research study, the author
+has clearly explained how color-related elements can be somehow inappropriate and
+cannot be an effective option when other visual options are not available. The primary
+focus of the study was on showing how modern website designs overlook
+accessibility requirements and thus violate certain standards. The research has
+emphasized and explained that adaptive website designs, where certain operations and
+functions change frequently, can negatively affect accessibility. According to the
+research authors, adaptation is one of the primary features of website designs and thus
+can somehow violate accessibility requirements. The study has sufficiently explained
+how and why adaptation can be incorrect and has proposed certain requirements to be
+included in the adaptation process of website interfaces, and thus the research is
+relevant and sufficient.
+
+Wickramathilaka and Müller (2025) presented a model-based approach that is
+applicable to the design and development of adaptive and accessible user interfaces
+especially for seniors. Their work was a response to the rising usability challenges
+that affect the elderly population due to cognitive, visual, and physical impairments
+that come with old age. From their study, the model used adaptive layout through the
+dynamic modification of the interface to improve the experience of the user. More
+especially, the adaptive model was effective in the improvement of the reading
+experience for the people sampled from the experimental design. The findings
+indicated that the model was effective when compared to the ones that are static.
+
+Access to the user interface is critical and needs to be adapted to the needs of the
+seniors, crucial since the accessibility needs are highly diverse compared to the
+averages that are one-size-fits-all, making accessibility adaptation crucial since it
+needs to be personalized to the needs of the individual.
+
+Jamali et al. (2025) investigated AI-powered adaptive learning interfaces for
+evaluating the effect of personalization on user engagement and motivation. The
+paper approached this by quantitatively and qualitatively measuring how various
+adaptive strategies influence learning outcomes and user perception. Results have
+shown that well-designed personalization significantly enhances user satisfaction,
+engagement, and performance, whereas poorly implemented adaptation strategies lead
+to confusion, frustration, and reduced acceptance. Transparency and predictability of
+adaptive behavior have been pointed out, with critical remarks that users may respond
+more positively when adaptation goals are clearly aligned with their expectations.
+Adaptation should, therefore, be goal-directed and carefully tuned to user needs.
+These insights are particularly relevant for adaptive web interface design, as they
+further point out the necessity of controlled, user-centered adaptation strategies that
+do not introduce arbitrary or excessive changes.
+
+Retzlaff et al. (2024) conducted a comprehensive survey on human-in-the-loop
+reinforcement learning approaches for adaptive systems. The present study reviewed
+how the integration of human feedback into learning processes enhances system
+reliability, safety, and interpretability. Results showed that human oversight greatly
+enhanced users' trust in the system and further reduced the risks involved with
+autonomous decision-making. The authors noted that the provided mechanisms of
+human feedback allow an adaptive system to correct undesirable behaviors while
+
+learning. This is of particular importance for domains in which errors might
+negatively affect users. The study also pointed to the importance of human-in-theloop approaches with respect to accessibility-sensitive applications. These findings
+strongly support the development of adaptive web interfaces with integrated human
+supervision, such as the one proposed within the present study.
+
+Jiang et al. (2025) discussed the application of a deep Q-learning approach in the
+development of the adaptive user interface framework targeting wearable medical
+devices. While the usability, task effectiveness, and overall user engagement were
+enhanced with the application of adaptive user interface strategies, there were obvious
+safety implications with the unbridled application of adaptive user interfaces, as
+emphasized Jiang et al. This study indicated the need for the application of a
+constrained learning approach while targeting the adaptive web interface development
+process. This emphasis on the application of constrained adaptive development is the
+same as the emphasis that the present research emphasizes on the application of
+constraints in web usability development.
+
+Troussas (2025), in a study on reinforcement learning–based adaptive interface
+models using fuzzy dynamic weighting to handle uncertainty in user models, showed
+that hybrid intelligent methods can cope more efficiently with user preference and
+usage variability. Thus, a more flexible and robust adaptability using both
+reinforcement learning and fuzzy logic can lead to more stable models of intelligent
+adaptability, especially in complex environments where user models are unpredictable
+in practice. Thus, this study can add to generalizations in intelligent adaptability as a
+tool in designing more intelligent methods of adaptability in web interface designs
+using sophisticated intelligent learning methods
+
+In particular, Wang et al. (2024) investigated an issue of effective user interfaces
+while developing software concerning the management of chronic health conditions.
+The findings showed that the usability of software, as well as increased adherence
+among users, were greatly enhanced by the use of an adaptive approach. The authors'
+emphasis on effective and exhaustive methodology, however, raises concerns about
+ensuring an effective approach. The issue of stability is again raised, thus providing
+further backing to the issue of controlled approaches, making way for the objectives
+of the present study.
+
+Ali and Chen (2024) developed a conceptual framework for self-adaptive mobile user
+interfaces, focusing on structured decision-making processes for adaptation. The key
+components that would anchor adaptive behavior were outlined as monitoring,
+analysis, planning, and execution. Even as the core of this study rested on mobile
+interfaces, the bases of this principle can be applied to web-based environments. The
+authors have identified the necessity for adaptation driven by usability and
+mechanisms for systematic control. This provides the grounding for the present study,
+reinforcing the application of structured and well-governed adaptation strategies in
+adaptive web interface design.
+
+2.6 Summary of Related Works
+The literature reviewed (2020-2025) suggests adaptive interfaces for the Web can be
+used for enhanced usability/personalization by use of smart approaches like
+reinforcement learning, but there are issues in the enforcement of accessibility, reward
+schemes, stability, and trust for the users.
+
+Author(s) &
+Year
+
+Title of Article
+
+Focus
+
+Key Finding
+
+Gap Identified
+
+Kristić et al.
+(2025)
+
+Machine
+Learning for
+Adaptive
+Accessible User
+Interfaces: A
+Systematic
+Literature
+Review
+
+Sun et al. (2024)
+
+Reinforcement
+Learning-Based
+Adaptive User
+Interface
+Generation
+
+Review of ML
+techniques in
+adaptive and
+accessible UIs
+
+Demonstrated
+that
+supervised,
+reinforcement,
+and hybrid ML
+techniques
+significantly
+enhance
+personalization
+and interaction
+efficiency.
+However,
+accessibility
+considerations
+such as
+WCAG
+compliance
+were often
+treated as
+optional
+extensions
+rather than
+core design
+objectives.
+Most systems
+optimized
+engagement
+and
+performance
+rather than
+inclusive
+usability.
+RL-driven UI
+Modeled UI
+personalization adaptation as a
+sequential
+decisionmaking
+process where
+agents learn
+optimal
+configurations
+from user
+interaction
+feedback.
+Showed that
+RL can
+autonomously
+generate
+effective
+interface
+
+Accessibility
+constraints are
+weakly enforced
+or absent during
+runtime
+adaptation,
+indicating a lack
+of accessibilityaware learning
+frameworks.
+
+Accessibility
+and usability
+constraints were
+not embedded
+in the reward
+function,
+leading to a risk
+of engagementdriven rather
+than usable or
+accessible
+adaptations.
+
+GasparFigueiredo et al.
+(2025)
+
+User
+Experience with
+Adaptive User
+Interfaces
+
+Usability
+evaluation of
+adaptive
+menus
+
+GasparFigueiredo et al.
+(2025)
+
+Human
+Feedback in
+Reinforcement
+Learning for
+Adaptive User
+Interfaces
+
+Human-in-theloop RL for UI
+adaptation
+
+Vidmanov (2024)
+
+Usability
+Reward
+Modeling in
+Reinforcement
+Learning-Based
+Adaptive
+Interfaces
+
+Reward
+modeling for
+RL-based UI
+adaptation
+
+layouts
+without
+predefined
+personalization
+rules.
+Found that
+adaptive
+menus
+improve task
+efficiency and
+accuracy
+compared to
+static menus.
+However,
+many users
+preferred nonadaptive
+interfaces due
+to trust,
+predictability,
+and control
+concerns.
+Demonstrated
+that
+incorporating
+human
+approval or
+rejection of
+adaptations
+significantly
+improves user
+satisfaction
+and reduces
+frustration
+caused by fully
+autonomous
+systems.
+Showed that
+reward
+functions
+emphasizing
+efficiency,
+error
+reduction, and
+user
+satisfaction
+result in more
+stable and
+predictable
+adaptations
+
+Usability
+evaluation often
+ignores user
+trust,
+transparency,
+and accessibility
+when assessing
+adaptive
+systems.
+
+Accessibility
+constraints were
+not explicitly
+modeled in the
+human feedback
+loop.
+
+Accessibility
+standards and
+human
+oversight were
+not considered
+in reward
+formulation.
+
+Khamaj (2024)
+
+Deep
+Reinforcement
+Learning for
+Enhancing User
+Experience in
+Adaptive
+Interfaces
+
+Deep RL in
+adaptive UI
+systems
+
+Carrera-Rivera
+et al. (2024)
+
+AdaptUI: A
+Context-aware
+Framework for adaptive UI
+Adaptive User
+framework
+Interfaces in
+Smart Product–
+Service Systems
+
+Bercaru &
+Popescu (2024)
+
+Accessibility in
+Online
+Platforms:
+Techniques,
+Challenges and
+AI-Based
+Solutions
+
+Survey of AIbased
+accessibility
+solutions
+
+than
+engagementfocused
+rewards.
+Confirmed that
+deep RL
+agents can
+effectively
+personalize
+interfaces by
+learning user
+interaction
+patterns,
+improving
+usability and
+performance.
+Warned
+against
+instability
+from
+unconstrained
+learning.
+Established
+that
+comprehensive
+modeling of
+user and
+system context
+significantly
+improves
+relevance and
+user
+satisfaction in
+adaptive
+systems.
+Demonstrated
+effectiveness
+through
+multiple case
+studies.
+Identified
+speech
+recognition,
+captioning,
+screen reader
+optimization,
+and assistive
+technologies
+as effective
+tools.
+
+Lack of explicit
+control,
+accessibility
+constraints, and
+safety
+mechanisms.
+
+Accessibility
+considerations
+were implicit
+and not
+formally
+modeled as
+constraints.
+
+Accessibility is
+treated as a
+supplementary
+feature rather
+than embedded
+across the
+design lifecycle.
+
+Sajek et al.
+(2025)
+
+User
+Perceptions of
+Web
+Accessibility
+for Colour
+Vision
+Deficiency
+
+Wickramathilaka Adaptive and
+& Mueller (2025) Accessible User
+Interfaces for
+Seniors
+
+Jamali et al.
+(2025)
+
+AI-Powered
+Adaptive
+Learning
+Interfaces
+
+Highlighted
+that
+accessibility is
+often added
+late in
+development.
+Accessibility
+Revealed that
+perception
+improper
+study
+contrast usage
+and reliance on
+color cues
+significantly
+reduce
+readability and
+usability.
+Highlighted
+that dynamic
+visual
+adaptation can
+worsen
+accessibility if
+uncontrolled.
+Adaptive UI
+Demonstrated
+design for
+that adaptive
+elderly users
+layouts
+significantly
+improve
+readability and
+navigation for
+seniors
+compared to
+static
+interfaces.
+Emphasized
+the need for
+personalized
+accessibility.
+Personalization Showed that
+in learning
+well-designed
+interfaces
+personalization
+improves
+engagement,
+motivation,
+and
+performance,
+while poorly
+designed
+adaptation
+frustrates
+users.
+
+No intelligent or
+adaptive
+accessibilityaware solution
+was proposed.
+
+Lack of
+scalable,
+automated
+adaptive
+accessibility
+models.
+
+Limited focus
+on accessibility
+and constraintbased
+adaptation.
+
+Retzlaff et al.
+(2024)
+
+Human-in-theLoop
+Reinforcement
+Learning: A
+Survey
+
+Jiang et al. (2025) Adaptive User
+Interfaces for
+Wearable
+Medical
+Devices Using
+Deep QLearning
+
+HITL RL
+methods
+
+Adaptive UI in
+healthcare
+
+Troussas (2025)
+
+Reinforcement
+Learning-Based
+Adaptive
+Interfaces with
+Fuzzy Dynamic
+Weighting
+
+Hybrid
+intelligent
+adaptation
+
+Wang et al.
+(2024)
+
+Adaptive User
+Interfaces in
+Healthcare
+Software
+
+Adaptive UI
+for chronic
+condition
+management
+
+Ali & Chen
+(2024)
+
+A Conceptual
+Framework for
+Self-Adaptive
+Mobile User
+Interfaces
+
+Structured
+adaptation
+decisionmaking
+
+Found that
+integrating
+human
+feedback
+improves trust,
+transparency,
+and safety in
+adaptive
+systems.
+Highlighted
+importance for
+sensitive
+domains.
+Demonstrated
+improved
+usability and
+engagement
+but
+emphasized
+safety risks of
+unconstrained
+adaptation in
+medical
+contexts.
+Showed that
+combining RL
+with fuzzy
+logic improves
+stability and
+handles
+uncertainty in
+user behavior
+more
+effectively.
+Found
+improved
+usability and
+user adherence
+but stressed
+the importance
+of system
+stability and
+inclusive
+evaluation.
+Proposed a
+MAPE-based
+framework
+emphasizing
+usabilitydriven
+
+Few
+applications
+specifically
+target adaptive
+user interfaces
+with
+accessibility
+concerns.
+
+Necessity for
+constrained and
+accessibilityaware learning
+not fully
+addressed.
+
+Accessibility
+constraints and
+human
+oversight were
+not integrated.
+
+Limited
+guidance on
+enforcing
+accessibility and
+stability
+constraints.
+
+No explicit
+accessibilityaware
+adaptation
+model was
+defined.
+
+adaptation and
+control
+mechanisms
+applicable
+beyond mobile
+systems.
+
+CHAPTER THREE
+SYSTEM DESIGN AND METHODOLOGY
+3.0 Overview of the System
+This chapter describes system design and methodology developed for an adaptive web
+interface using CRL, along with HITL mechanisms in order to ensure accessibility
+compliance and improve user trust. The methodology describes the system
+architecture, data collection process, learning framework, constraint enforcement
+strategy, and evaluation methods used in assessing system performance.
+It proposes a system that dynamically modifies user interface elements through
+patterns of user interactions but also addresses the WCAG requirements for
+accessibility. It includes human supervision of adapted decisions to review and make
+changes to the adaptive decisions for better usability and to increase user confidence.
+
+3.1 System Analysis and Design Strategy
+The approaches adopted included scalability, maintainability, and clarity; hence, an
+appropriate approach was the adoption of modular design. The system is divided into
+the following major components:
+
+
+User Interface Layer
+
+
+
+Interaction Monitoring Module
+
+
+
+Constrained Reinforcement Learning Engine
+
+
+
+Human-in-the-loop feedback module
+
+
+
+Accessibility Compliance Validator
+
+Each module executes a specific function while communicating with other modules
+for adaptive and accessible user interaction.
+
+3.2 System Architecture
+Such a system would have a layered architecture wherein user interfaces through the
+web interface would be monitored. User behaviors would be fed to the reinforcement
+learning agent to calculate the adaptations optimally while keeping the accessibility
+constraints in check. They may or may not be sent to the user for evaluation.
+Architecture Description
+
+
+Input: Interactions – click, navigation paths and dwell time
+
+
+
+Processing: Policy learning using Constrained Reinforcement Learning with
+accessibility constraints
+
+
+
+Control:Validation and feedback through "human in the loop" mechanisms
+
+
+
+Output: Adaptation of web interface compatible with WCAG guidelines
+
+Figure 3.1: Use Case Diagram of the Proposed Adaptive Web Interface System
+
+3.3 Unified Modeling Language (UML) Diagrams
+3.3.1 Use Case Diagram
+The interaction of system actors with adaptive web interface system can be
+understood from the use case diagram below:
+Actors:
+End User
+System Administrator (Human Supervisor)
+The end user ultimately accesses the web interface, uses elements of the interface, and
+receives updates to the adaptable interfaces. The system administrator manages the
+adaptation process by viewing adaptable decisions, approving or editing adaptations,
+and monitoring accessibility compliance to adhere to WCAG norms.
+
+Figure 3.3.1 shows the use case diagram of the proposed adaptive web interface
+system.
+
+3.3.2 Class Diagram
+The class diagram shows the system structure and the necessary components that are
+part of this system. The necessary components of this class diagram system include:
+User, Interface State, RL Agent, Constraint Manager, Accessibility Validator, Human
+Feedback Module.
+Each such class has values related to adaptable decisions. Each such class has
+variables related to accessibility enforcement and human evaluation. These classes
+have relationships among them showing how user behaviors influence interface states,
+how the reinforcement learning agent provides adaptation suggestions, how
+accessibility constraints are enforced, and how human evaluation influences
+adaptation decisions.
+
+Figure 3.3.2 presents the class diagram of the proposed system.
+
+3.3.3 System Flowchart
+The system flowchart illustrates the working of the operational workflow of the
+adaptive web interface. It starts by considering the interaction initiated from the user's
+end with the interface. This interaction is captured and analyzed, including the
+evaluation of the reinforcement learning agent on the current interface state. Further,
+there are the accessibility constraints that keep the adaptations away from being
+unsafe or non-compliant. Optionally, human feedback can also be integrated in order
+to deploy the adapted interface.
+
+Figure 3.3.3: Flowchart of the Adaptive Web Interface Operation
+
+3.4 Data Collection
+User interaction data is captured in a real-time fashion via client-side logging entities
+integrated with the Web interface. The data captured includes:
+
+
+Click frequency
+
+
+
+Navigation sequences
+
+
+
+Session duration
+
+
+
+Interaction errors
+
+
+
+Accessibility-related events (e.g., keyboard navigation use)
+
+The above mentioned data points will reveal much about how users use the system
+and how it can be utilized well.
+
+3.5 Data Preprocessing
+Collected data is processed in some way to enhance data quality. It involves:
+
+
+Deletion of incomplete interaction logs
+
+
+
+Normalization of Interaction Metrics
+
+
+
+Aggregation of session-level data
+
+
+
+Encoding of interface states for learning
+
+This preprocessed data is stored in an appropriate structure for the purpose of
+reinforcement learning.
+
+3.6 Reinforcement Learning Framework
+The reinforcement learning framework models interface adaptation as a problem of
+sequential decision-making, where an agent learns an optimal adaptation strategy
+through interaction with the environment.
+Figure 3.6 is a framework synthesized by the author based on previous studies of
+reinforcement learning-based adaptive interfaces, web accessibility standards/content
+
+characteristics, and human-in-the-loop systems. Studies included in this synthesis
+include Sun et al. (2024), Gaspar-Figueiredo et al. (2025), and Retzlaff et al. (2024). It
+is a framework developed by the author, intended to incorporate these ideas into a
+cohesive model.
+
+Figure 3.6: Proposed Constrained Reinforcement Learning and Human-in-theLoop Framework for Adaptive Web Interfaces (Synthesized from Literature and
+Designed by the Researcher)
+
+3.6.1 State Space
+The state space comprises the current configuration of the interface settings and
+context of the user's interactions, including layout structure, visual settings, navigation
+complexity, and recent patterns in users' behaviors.
+
+3.6.2 Action Space
+The action space consists of permissible interface adaptations, including:
+
+
+Font size adjustment
+
+
+
+Contrast modification
+
+
+
+Layout restructuring
+
+
+
+Navigation simplification
+
+Actions that violate accessibility requirements are restricted.
+
+3.6.3 Reward Function
+The reward function assesses the effectiveness of interface adaptations depending on:
+
+
+Improved task completion rates
+
+
+
+Reduced interaction errors
+
+
+
+Positive user feedback
+
+
+
+Accessibility Compliance
+
+Rewards guide the agent towards inclusive and useable interface configurations.
+
+3.7 Constrained Reinforcement Learning Approach
+The accessibility constraints based upon the guidelines of WCAG 2.1 are incorporated
+in the learning process. The learning process will impose restrictions upon the agent
+to avoid any actions that will compromise accessibility in aspects such as insufficient
+contrast between colors, inaccessible navigation systems, or non-accessible text sizes.
+
+The process of constrained learning guarantees that all the learned policies stay safe,
+inclusive, and compliant.
+
+3.8 Human-in-the-Loop Integration
+Human-in-the-loop mechanisms allow users or administrators to:
+
+
+Review adaptive decisions
+
+
+
+Provide corrective feedback
+
+
+
+Approve or reject interface changes
+
+Human feedback is incorporated into policy updates, enhancing system transparency
+and preventing undesirable adaptations.
+
+3.9 Study Population
+The target population comprises internet users, who have varying levels of digital
+literacy as well as differences in their accessibility needs. It will include users with
+disabilities, like the visually impaired, and those without disabilities to provide a
+balanced approach.
+
+3.10 Data Analysis Technique
+
+
+Both qualitative and quantitative analysis techniques are employed.
+
+
+
+Quantitative analysis of interaction metrics
+
+
+
+Qualitative analysis of user feedback
+
+
+
+Analysis of comparative performance of the interface before and after adaptation
+
+3.11 Training and Testing Strategy
+The data set is split into an 80:20 division for training and testing subsets, respectively.
+Then, the agent of reinforcement learning is trained in an iterative way, while its
+performance is assessed on data of interactions that have not been seen to ensure its
+generalization.
+
+3.12 Evaluation Metrics
+System performance is assessed using the following parameters:
+
+
+Task completion time
+
+
+
+Error Rate Reduction
+
+
+
+Accessibility compliance score
+
+
+
+User satisfaction rating
+
+3.13 Ethical Considerations
+Adaptation acceptance rate User privacy and data security are fully incorporated into
+this interaction type. Anonymity is ensured for all interaction data collected. The
+interaction is also completely voluntary and adaptive decisions are also fully
+transparent.
+
+3.14 Chapter Summary
+This chapter has covered the system design and its methodology in the development
+of an accessibility awareness-based adaptive web interface through the use of
+constrained reinforcement learning. In the next chapter, the system implementation,
+the achieved results, and the discussion will be presented.
+
+REFERENCES
+Ali, M., & Chen, Y. (2024). A conceptual framework for self-adaptive mobile user
+interfaces. International Journal of Human–Computer Interaction, 40(10), 871–888.
+Bercaru, M., & Popescu, D. (2024). Accessibility in online platforms: Techniques,
+challenges and AI-based solutions. International Journal of Advanced Computer
+Science and Applications, 15(1), 1–12.
+Carrera-Rivera et al. (2024) introduced AdaptUI, a framework designed to support
+adaptive user interfaces in smart product–service systems.
+
+Gaspar-Figueiredo, M., Cabanillas, D., & Silva, P. A. (2025). User experience with
+adaptive user interfaces: Comparing performance and preferences. Journal of Systems
+and Software, 210, 111865.
+Gaspar-Figueiredo, M., Cabanillas, D., & Silva, P. A. (2025). Human feedback in
+reinforcement learning for adaptive user interfaces. Proceedings of the ACM on
+Human-Computer Interaction, 9(CSCW), 1–25.
+Jamali, A., Rahman, M., & Ali, S. (2025). AI-powered adaptive learning interfaces:
+Impact on engagement and motivation. Frontiers in Computer Science, 7, 1672081.
+Jiang et al. (2025) presented an adaptive user interface framework for wearable
+medical devices using deep Q-learning techniques.
+Khamaj, A. (2024). Enhancing user experience using reinforcement learning in
+adaptive interfaces. The Egyptian Informatics Journal, 27, 100287.
+Kristić, M., Vuković, M., & Jovanović, D. (2025). Machine learning for adaptive
+accessible user interfaces: A systematic literature review. Applied Sciences, 15(23),
+12538.
+Retzlaff, M., Coussement, K., & De Wever, B. (2024). Human-in-the-loop
+reinforcement learning: Concepts, methods, and applications. Journal of Artificial
+Intelligence Research, 79, 1–45.
+Sajek et al. (2025) focused on users’ perception of accessibility in web resources,
+particularly among individuals with colour vision deficiency.
+Sun et al. (2024) presented an adaptive user interface generation approach based on
+reinforcement learning, focusing on data-driven personalization and interface
+optimization.
+Troussas, C. (2025). Reinforcement learning-based adaptive user interface using
+dynamic fuzzy weighting. Future Internet, 17(4), 166.
+Vidmanov (2024) concentrated on usability reward modeling for user interface
+adaptation using multi-agent reinforcement learning.
+Wang, W., Khalajzadeh, H., Grundy, J., Madugalla, A., & Obie, H. (2024). Adaptive
+user interfaces for software supporting chronic conditions. In Proceedings of the 46th
+International Conference on Software Engineering (ICSE 2024) (pp. 1–12).
+IEEE/ACM.
+Wickramathilaka, R., & Mueller, H. (2025). Model-driven development of adaptive
+and accessible user interfaces for seniors. Applied Intelligence, 55(3), 1–18.
+Kristić, M., Zakarija, I., Škopljanac-Mačina, F., & Car, Ž. (2025). Machine learning
+for adaptive accessible user interfaces: Overview and applications. Applied Sciences,
+15(23), 12538.
+
+Gaspar-Figueiredo, D., Fernández-Diego, M., Abrahão, S., & Insfran, E. (2025).
+Integrating human feedback into a reinforcement learning-based framework for
+adaptive user interfaces.
+Alekseev, P. (2025). Integrated adaptive approaches to ensuring accessibility of web
+applications for users with disabilities. Advances in Research, 26(3), 62–69.
+Wickramathilaka, S., & Müller, H. (2025). Adaptive and accessible user interfaces for
+seniors. Artificial Intelligence Review. Springer Nature.
+Mukti, A. J. (2025). AI-powered adaptive interface: Enhancing user accessibility.
+Procedia Computer Science, 231, 123–130.
+World Wide Web Consortium (W3C). (2018). Web Content Accessibility Guidelines
+(WCAG) 2.1.
+
+
